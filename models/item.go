@@ -13,7 +13,7 @@ type Item struct {
 }
 
 type ItemList struct {
-	Items []Item
+	Items []Item `json:"items"`
 }
 
 func (i *Item) Bind(r *http.Request) error {
