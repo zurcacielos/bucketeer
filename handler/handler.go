@@ -7,8 +7,11 @@ import (
 	"net/http"
 )
 
+var dbInstance db.Database
+
 func NewHandler(db db.Database) http.Handler {
 	router := chi.NewRouter()
+	dbInstance = db
 
 	router.MethodNotAllowed(methodNotAllowedHandler)
 	router.NotFound(notFoundHandler)

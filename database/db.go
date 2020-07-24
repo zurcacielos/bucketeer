@@ -1,10 +1,8 @@
-package db
+package database
 
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
-	"log"
 )
 
 const (
@@ -13,23 +11,16 @@ const (
 )
 
 type Database struct {
-	Conn *sql.DB
+
 }
 
 func Initialize(username, password, database string) (Database, error) {
-	db := Database{}
 	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		HOST, PORT, username, password, database)
-	conn, err := sql.Open("postgres", dsn)
+	db, err := sql.Open("postgres", dsn)
 	if err != nil {
-		return db, err
+		return db
 	}
-
-	db.Conn = conn
-	err = db.Conn.Ping()
-	if err != nil {
-		return db, err
-	}
-	log.Println("Database connection established")
+	db := Database{}
 	return db, nil
 }
