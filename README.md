@@ -1,11 +1,11 @@
 ### Requirements
 * Docker and Go
-* [golang-migrate/migrate](https://gitlab.com/golang-migrate/migrate) 
+* [golang-migrate/migrate](https://github.com/golang-migrate/migrate) 
 
 ### Usage
 Clone the repository with:
 ```bash
-git clone github.com/idoko/bucketeer
+git clone gitlab.com/idoko/bucketeer
 ```
 
 Copy the `env.example` file to a `.env` file.
