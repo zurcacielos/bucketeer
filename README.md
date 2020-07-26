@@ -1,6 +1,6 @@
 ### Requirements
 * Docker and Go
-* [golang-migrate/migrate](https://github.com/golang-migrate/migrate) 
+* [golang-migrate/migrate](https://gitlab.com/golang-migrate/migrate) 
 
 ### Usage
 Clone the repository with:
@@ -30,8 +30,6 @@ After making your changes, you can rebuild the `server` service by running the c
 ```bash
 $ docker-compose stop server
 $ docker-compose build server
-$ docker-compose create server
+$ docker-compose up --no-start server
 $ docker-compose start server
 ```
-### Testing
-omo

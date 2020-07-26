@@ -1,10 +1,11 @@
 package handler
 
 import (
+	"net/http"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/render"
 	"gitlab.com/idoko/bucketeer/db"
-	"net/http"
 )
 
 var dbInstance db.Database
@@ -16,8 +17,8 @@ func NewHandler(db db.Database) http.Handler {
 	router.MethodNotAllowed(methodNotAllowedHandler)
 	router.NotFound(notFoundHandler)
 
-	router.Route("/lists", lists)
-	
+	router.Route("/items", items)
+
 	return router
 }
 
