@@ -22,5 +22,18 @@ services:
       - default
     ports:
     - "8080:8080"
+
+  migrate:
+    image: migrate/migrate
+    env_file: .env
+    depends_on:
+        - database
+    volumes:
+      - ./db/migrations:/migrations
+    # if migration doesn't need to be applied you may get an error you can ignore on compose up: migrate_1   | error: file does not exist
+    command: ["-path", "/migrations", "-database",  "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?sslmode=disable", "up", "3"]
+    links:
+      - database
+
 volumes:
   data:

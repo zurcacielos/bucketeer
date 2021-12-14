@@ -33,3 +33,6 @@ $ docker-compose build server
 $ docker-compose up --no-start server
 $ docker-compose start server
 ```
+# Test
+
+curl -X POST http://localhost:8080/items -H "Content-type: application/json" -d '{ "name": "swim across the River Benue", "description": "ho ho ho"}'
